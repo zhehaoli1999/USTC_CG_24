@@ -23,7 +23,7 @@ public:
 	void DeleteAt(int nIndex); // delete an element at some index
 	void InsertAt(int nIndex, double dValue); // insert a new element at some index
 
-	DArray& operator = (const DArray& arr); //overload operator '='
+DArray& operator = (const DArray& arr); //overload operator '='
 
 private:
 	double* m_pData; // the pointer to the array memory

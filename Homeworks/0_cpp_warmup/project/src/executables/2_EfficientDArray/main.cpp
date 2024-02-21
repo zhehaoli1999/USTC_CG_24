@@ -14,6 +14,7 @@ int main(int argc, char** argv) {
 	a.Print();
 	a.InsertAt(0, 4.1);
 	a.Print();
+	// a.GetAt(0);
 
 	DArray acopy = a; // 此处用到了拷贝构造函数
 	acopy.Print();
@@ -32,7 +33,7 @@ int main(int argc, char** argv) {
 	b.DeleteAt(0);
 	b.Print();
 	b.PushBack(22);
-	b.SetSize(5);
+	// b.SetSize(5);
 	b.Print();
 
 	DArray c;
