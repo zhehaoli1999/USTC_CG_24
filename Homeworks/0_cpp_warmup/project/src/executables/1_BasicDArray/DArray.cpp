@@ -10,11 +10,11 @@ DArray::DArray() {
 // set an array with default values
 DArray::DArray(int nSize, double dValue) {
 	m_pData = new double[nSize];
-	m_nSize = nSize;
+	m_nSize = nSize; // IMPROVE: use Member Initializer List 
 	for(int i = 0; i < nSize; i++) {
 		m_pData[i] = dValue;
 	}
-	return; 
+	// return; // ERROR: no return in construction function 
 }
 
 DArray::DArray(const DArray& arr) {
@@ -52,12 +52,16 @@ void DArray::Init() {
 
 // free the array
 void DArray::Free() {
-	if(m_pData){
-		delete[] m_pData;
-		m_pData = nullptr;
-	}
-	m_nSize = 0; 
-	return; 
+	// if(m_pData){
+	// 	delete[] m_pData;
+	// 	m_pData = nullptr;
+	// } // IMPROVE: delete[] nullptr is safe! 
+	// m_nSize = 0; 
+	// return; 
+
+	delete[] m_pData;
+	m_pData = nullptr;
+	m_nSize = 0;
 }
 
 // get the size of the array
@@ -67,6 +71,20 @@ int DArray::GetSize() const {
 
 // set the size of the array
 void DArray::SetSize(int nSize) {
+	// m_nSize = nSize;
+	// ERROR: need to reallocate memory 
+	double* pData = new double[nSize]; 
+
+	int copyNum = nSize < m_nSize ? nSize : m_nSize;
+	for(int i = 0; i < copyNum; i++) {
+		pData[i] = m_pData[i];
+	}
+	for(int i = copyNum; i < nSize; i++) {
+		pData[i] = 0.;
+	}
+
+	delete[] m_pData;
+	m_pData = pData; 
 	m_nSize = nSize;
 }
 
@@ -76,7 +94,7 @@ const double& DArray::GetAt(int nIndex) const {
 	{
 		std::cout << "Error at SetAt: invalid index\n" << std::endl;
 		exit(1);
-	}
+	} // IMPROVE: use assert
 	return m_pData[nIndex]; 
 }
 
@@ -119,7 +137,8 @@ void DArray::DeleteAt(int nIndex) {
 	m_nSize -= 1;
 	for(int i = nIndex; i < m_nSize; i++) {
 		m_pData[i] = m_pData[i+1];
-	}
+	} // IMPROVE: use new array and copy data
+	// IMPROVE: it is better to change m_nSize at last
 }
 
 // insert a new element at some index
