@@ -39,7 +39,7 @@ double PolynomialMap::coff(int i) const
 }
 
 double& PolynomialMap::coff(int i) {
-    return m_Polynomial[i];
+    return m_Polynomial[i]; // may cause problem? 
 }
 
 void PolynomialMap::compress() {

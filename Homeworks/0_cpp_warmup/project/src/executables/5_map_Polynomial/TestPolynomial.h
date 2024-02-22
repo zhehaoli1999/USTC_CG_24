@@ -62,6 +62,11 @@ public:
         Polynomial p0(deg0, cof0);
         Polynomial p1(deg1, cof1);
         if (showOutput) {
+            std::cout << "p1 :";
+            p0.Print();
+            std::cout << "p2 :";
+            p1.Print();
+            std::cout << std::endl;
             (p0 * p1).Print();
             (p0 + p1).Print();
             (p0 - p1).Print();
