@@ -154,5 +154,5 @@ PolynomialList::Term& PolynomialList::AddOneTerm(const Term& term) {
         if (itr->deg > term.deg)
             break;
     }
-    return *m_Polynomial.insert(itr, term);
+    return *m_Polynomial.insert(itr, term); // This operation is really amazing to ensure sort!
 }
