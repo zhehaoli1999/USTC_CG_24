@@ -57,7 +57,7 @@ void DArray::Free() {
 	// Go and check the official std::vector implementation 
 	// Link: 
 	m_nSize = 0;
-	m_nMax = 1; 
+	m_nMax = 1;  
 }
 
 // get the size of the array
@@ -90,7 +90,7 @@ void DArray::SetSize(int nSize) {
 			auto new_array = new double[m_nMax];
 			for(int i = 0; i < m_nSize; i++)
 			{
-				new_array[i] = m_pData[i];
+				new_array[i] = m_pData[i]; // You can directly use memcpy
 			}
 			for(int i = m_nSize; i < nSize; i++)
 			{
@@ -142,7 +142,7 @@ void DArray::PushBack(double dValue) {
 		for(int i = 0; i < m_nSize; i++)
 		{
 			new_array[i] = m_pData[i];
-		}
+		} // IMPROVE: abstract this operation into a common reserve function 
 		new_array[m_nSize] = dValue; 
 
 		delete[] m_pData;

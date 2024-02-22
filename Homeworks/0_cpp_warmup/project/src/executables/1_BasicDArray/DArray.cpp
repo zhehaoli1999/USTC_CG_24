@@ -44,7 +44,7 @@ void DArray::Print() const {
 	std::cout << std::endl; 
 }
 
-// initilize the array
+// initialize the array
 void DArray::Init() {
 	m_nSize = 0;
 	m_pData = nullptr; // todo: use smart pointer 
