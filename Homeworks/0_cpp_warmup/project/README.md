@@ -1,5 +1,19 @@
 # 作业项目
 
+# Summary Report by Zhehao Li
+
+# 2 basic array: 
++ add a common reverse function is good
++ index error can happen, whether +1 or -1, like accessing the end element
+
+# 4 list array:
++ One key is to ensure sorting in addTerm
+
+# 5 map array:
++ One key is use the api from std::map to insert / access element, like operator[] will create new item if key does not exist. 
+
+
+
 ## 目录结构
 
 本项目目录包含以下若干子目录：
@@ -57,4 +71,3 @@
 你需要补充完成 [src/libraries/static/PolynomialMap.cpp](src/libraries/static/PolynomialMap.cpp) 
 
 [5_map_Polynomial](src/executables/5_map_Polynomial) 会测试该静态库，另外该子项目还用到了小练习 4 的动态库 PolynomialList，其中会测试小练习 4 和小练习 5 的性能差异
-
